@@ -4,6 +4,7 @@ import { ServicesPageComponent } from './services-page/services-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { QuotesComponent } from './quotes/quotes.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -26,5 +27,9 @@ export const routes: Routes = [
   {
     path: 'quote',
     component: QuotesComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];

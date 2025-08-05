@@ -49,10 +49,56 @@
     font-size: 1rem;
     background: #03143541;
     color: #dedede;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 180, 0, 0.2);
+  }
+
+  input.error,
+  select.error,
+  textarea.error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+  }
+
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  .form-message {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .form-message.success {
+    background: rgba(46, 204, 113, 0.1);
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+  }
+
+  .form-message.error {
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
   }
 
   textarea {
     height: 120px;
+    resize: vertical;
   }
 
   /* CTA Button */
@@ -60,14 +106,29 @@
     background: var(--accent);
     color: #272727;
     padding: 0.8rem 1.5rem;
+    border: none;
     border-radius: var(--border-radius);
     font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
   }
 
-  .btn-primary:hover {
-    background: var(--primary-hover);
+  .btn-primary:hover:not(:disabled) {
+    background: #ffa000;
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    transform: none;
   }
 
   /* How It Works Section */

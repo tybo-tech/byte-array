@@ -1,23 +1,34 @@
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="container">
     <!-- Logo -->
-    <a href="/" class="logo">
-      <img src="/images/logo.png" alt="Byte Array Logo">
+    <a href="/" class="logo" aria-label="Byte Array - Home">
+      <img
+        src="/images/logo.png"
+        alt="Byte Array - Custom Software Development Company"
+        width="120"
+        height="40"
+      >
     </a>
 
     <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" (click)="toggleMenu()">
-      <i class="fas" [ngClass]="{ 'fa-bars': !menuOpen, 'fa-times': menuOpen }"></i>
+    <button
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="nav-menu"
+    >
+      <i class="fas" [ngClass]="{ 'fa-bars': !menuOpen, 'fa-times': menuOpen }" aria-hidden="true"></i>
     </button>
 
     <!-- Navigation Links -->
-    <ul class="nav-links" [ngClass]="{ 'active': menuOpen }">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a></li>
-      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a></li>
-      <li><a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+    <ul class="nav-links" [ngClass]="{ 'active': menuOpen }" id="nav-menu" role="menubar">
+      <li role="none"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" role="menuitem">Home</a></li>
+      <li role="none"><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()" role="menuitem">About</a></li>
+      <li role="none"><a routerLink="/services" routerLinkActive="active" (click)="closeMenu()" role="menuitem">Services</a></li>
+      <li role="none"><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()" role="menuitem">Contact</a></li>
       <!-- CTA Button -->
-      <li><a routerLink="/quote" class="cta" (click)="closeMenu()">Get a Quote <i class="fas fa-arrow-right ml-1 rotate-45"></i></a></li>
+      <li role="none"><a routerLink="/quote" class="cta" (click)="closeMenu()" role="menuitem" aria-label="Get a custom quote for your project">Get a Quote <i class="fas fa-arrow-right ml-1 rotate-45" aria-hidden="true"></i></a></li>
     </ul>
   </div>
 </nav>
