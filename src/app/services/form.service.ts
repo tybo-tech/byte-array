@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { EmailService } from './email.service';
 
 export interface ContactFormData {
   name: string;
@@ -32,11 +33,12 @@ export interface FormResponse {
   providedIn: 'root'
 })
 export class FormService {
-  private readonly API_BASE_URL = 'https://formspree.io/f'; // You can replace with your backend
-  private readonly FORM_ID = 'your-form-id'; // Replace with actual form ID
   private readonly QUOTE_STORAGE_KEY = 'byte_array_quote_data';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private emailService: EmailService
+  ) { }
 
   // Local Storage Methods for Multi-step Form
   saveQuoteData(data: Partial<QuoteFormData>): void {
@@ -61,15 +63,15 @@ export class FormService {
   }
 
   submitContactForm(formData: ContactFormData): Observable<FormResponse> {
-    return this.http.post<any>(`${this.API_BASE_URL}/${this.FORM_ID}`, formData)
+    return this.emailService.sendContactEmail(formData)
       .pipe(
         map(response => ({
-          success: true,
-          message: 'Thank you for your message! We\'ll get back to you within 24-48 hours.',
+          success: response.success || true,
+          message: response.message || 'Thank you for your message! We\'ll get back to you within 24-48 hours.',
           data: response
         })),
         catchError(error => {
-          console.error('Form submission error:', error);
+          console.error('Contact form submission error:', error);
           return throwError(() => ({
             success: false,
             message: 'Sorry, there was an error sending your message. Please try again or contact us directly.',
@@ -80,14 +82,11 @@ export class FormService {
   }
 
   submitQuoteForm(formData: QuoteFormData): Observable<FormResponse> {
-    return this.http.post<any>(`${this.API_BASE_URL}/${this.FORM_ID}`, {
-      ...formData,
-      formType: 'quote'
-    })
+    return this.emailService.sendQuoteEmail(formData)
       .pipe(
         map(response => ({
-          success: true,
-          message: 'Thank you for your quote request! Our team will review your requirements and get back to you within 24-48 hours.',
+          success: response.success || true,
+          message: response.message || 'Thank you for your quote request! Our team will review your requirements and get back to you within 24-48 hours.',
           data: response
         })),
         catchError(error => {

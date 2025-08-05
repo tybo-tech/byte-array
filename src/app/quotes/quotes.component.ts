@@ -228,17 +228,24 @@ export class QuotesComponent implements OnInit {
         submittedAt: new Date().toISOString()
       };
 
-      this.formService.submitFormWithoutBackend(formData).subscribe({
+      // Use the new email service to send formatted quote email
+      this.formService.submitQuoteForm(formData).subscribe({
         next: (response) => {
           this.submitSuccess = true;
           this.submitMessage = response.message;
           this.formService.clearQuoteData(); // Clear saved data after successful submission
           this.isSubmitting = false;
+          
+          // Optional: Show success message for longer
+          setTimeout(() => {
+            this.submitMessage = '';
+          }, 5000);
         },
         error: (error) => {
           this.submitSuccess = false;
-          this.submitMessage = error.message || 'An error occurred. Please try again.';
+          this.submitMessage = error.message || 'An error occurred while sending your quote request. Please try again or contact us directly.';
           this.isSubmitting = false;
+          console.error('Quote submission error:', error);
         }
       });
     } else {
