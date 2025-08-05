@@ -16,6 +16,10 @@ export interface QuoteFormData extends ContactFormData {
   service: string;
   budget: string;
   timeline: string;
+  projectType?: string;
+  features?: string[];
+  teamSize?: string;
+  currentStep?: number;
 }
 
 export interface FormResponse {
@@ -30,8 +34,31 @@ export interface FormResponse {
 export class FormService {
   private readonly API_BASE_URL = 'https://formspree.io/f'; // You can replace with your backend
   private readonly FORM_ID = 'your-form-id'; // Replace with actual form ID
+  private readonly QUOTE_STORAGE_KEY = 'byte_array_quote_data';
 
   constructor(private http: HttpClient) { }
+
+  // Local Storage Methods for Multi-step Form
+  saveQuoteData(data: Partial<QuoteFormData>): void {
+    const existingData = this.getQuoteData();
+    const updatedData = { ...existingData, ...data };
+    localStorage.setItem(this.QUOTE_STORAGE_KEY, JSON.stringify(updatedData));
+  }
+
+  getQuoteData(): Partial<QuoteFormData> {
+    const stored = localStorage.getItem(this.QUOTE_STORAGE_KEY);
+    return stored ? JSON.parse(stored) : {};
+  }
+
+  clearQuoteData(): void {
+    localStorage.removeItem(this.QUOTE_STORAGE_KEY);
+  }
+
+  updateQuoteStep(step: number): void {
+    const data = this.getQuoteData();
+    data.currentStep = step;
+    this.saveQuoteData(data);
+  }
 
   submitContactForm(formData: ContactFormData): Observable<FormResponse> {
     return this.http.post<any>(`${this.API_BASE_URL}/${this.FORM_ID}`, formData)
