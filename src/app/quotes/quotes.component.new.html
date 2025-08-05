@@ -286,17 +286,34 @@
   </div>
 </section>
 
-<!-- Success Modal -->
-<app-success-modal
-  [isVisible]="showSuccessModal"
-  title="Quote Request Sent!"
-  [message]="submitMessage"
-  closeButtonText="Request Another Quote"
-  [showNextSteps]="true"
-  [nextSteps]="[
-    'Our team will review your requirements within 24-48 hours',
-    'A project manager will contact you with a detailed proposal',
-    'We\'ll schedule a consultation to discuss your project in detail'
-  ]"
-  (close)="onModalClose()">
-</app-success-modal>
+<section class="quotes-how-it-works">
+  <div class="container">
+    <h2 class="fade-in">How Our Smart Quote Process Works</h2>
+    <div class="steps fade-in delay-1">
+      <div class="step">
+        <i class="fas fa-clipboard-list"></i>
+        <h3>Steps 1-2</h3>
+        <p>Tell us about your project type, features, budget, and timeline in South African Rands.</p>
+      </div>
+      <div class="step">
+        <i class="fas fa-comment-dots"></i>
+        <h3>Step 3</h3>
+        <p>Describe your project details and requirements.</p>
+      </div>
+      <div class="step">
+        <i class="fas fa-user-check"></i>
+        <h3>Step 4</h3>
+        <p>Provide your contact information for our response.</p>
+      </div>
+      <div class="step">
+        <i class="fas fa-handshake"></i>
+        <h3>Response</h3>
+        <p>Receive a detailed quote within 24-48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-faq></app-faq>
+
+<app-final-cta></app-final-cta>

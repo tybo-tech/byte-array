@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FinalCtaComponent } from "../components/final-cta/final-cta.component";
-import { FaqComponent } from "../components/faq/faq.component";
 import { BannerComponent } from "../banner/banner.component";
 import { FormService, QuoteFormData } from '../services/form.service';
+import { SuccessModalComponent } from '../components/success-modal/success-modal.component';
 
 interface QuoteStep {
   title: string;
@@ -17,9 +16,8 @@ interface QuoteStep {
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FinalCtaComponent, 
-    FaqComponent, 
-    BannerComponent
+    BannerComponent,
+    SuccessModalComponent
   ],
   templateUrl: './quotes.component.html',
   styleUrl: './quotes.component.scss'
@@ -31,6 +29,7 @@ export class QuotesComponent implements OnInit {
   isSubmitting = false;
   submitMessage = '';
   submitSuccess = false;
+  showSuccessModal = false;
 
   steps: QuoteStep[] = [
     {
@@ -120,15 +119,15 @@ export class QuotesComponent implements OnInit {
       service: ['', Validators.required],
       projectType: ['', Validators.required],
       features: [[]],
-      
+
       // Step 2: Budget & Timeline
       budget: ['', Validators.required],
       timeline: ['', Validators.required],
       teamSize: [''],
-      
+
       // Step 3: Project Details
       message: ['', [Validators.required, Validators.minLength(20)]],
-      
+
       // Step 4: Contact Information
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -158,7 +157,7 @@ export class QuotesComponent implements OnInit {
     if (this.isCurrentStepValid()) {
       // Save current step data
       this.saveCurrentStepData();
-      
+
       if (this.currentStep < this.totalSteps) {
         this.currentStep++;
         this.formService.updateQuoteStep(this.currentStep);
@@ -235,11 +234,7 @@ export class QuotesComponent implements OnInit {
           this.submitMessage = response.message;
           this.formService.clearQuoteData(); // Clear saved data after successful submission
           this.isSubmitting = false;
-          
-          // Optional: Show success message for longer
-          setTimeout(() => {
-            this.submitMessage = '';
-          }, 5000);
+          this.showSuccessModal = true;
         },
         error: (error) => {
           this.submitSuccess = false;
@@ -303,10 +298,20 @@ export class QuotesComponent implements OnInit {
   skipStep() {
     if (this.currentStep === 3 && this.quoteForm.get('message')?.value?.length < 20) {
       // Add minimal message for skipping
-      this.quoteForm.patchValue({ 
-        message: 'I would like to discuss my project requirements with your team.' 
+      this.quoteForm.patchValue({
+        message: 'I would like to discuss my project requirements with your team.'
       });
     }
     this.nextStep();
+  }
+
+  onModalClose(): void {
+    this.showSuccessModal = false;
+    this.submitMessage = '';
+    this.submitSuccess = false;
+    // Reset form to step 1 for new quote
+    this.currentStep = 1;
+    this.quoteForm.reset();
+    this.formService.clearQuoteData();
   }
 }
