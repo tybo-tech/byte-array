@@ -1,0 +1,128 @@
+:host{
+    .why-choose {
+        width: 100%;
+        background: var(--dark2);
+        display: flex;
+        align-items: center;
+      }
+      
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .content {
+        flex: 1;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        
+        @media (max-width: 768px){
+          font-size: 1.6rem;
+        }
+      }
+      
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+        max-width: 500px;
+      }
+      
+      /* Trust Points */
+      .trust-points {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+      }
+      
+      .trust-points li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--text-color);
+        margin-bottom: 0.8rem;
+      }
+      
+      .trust-points i {
+        color: var(--accent);
+        font-size: 1.5rem;
+      }
+      
+      /* CTA Button */
+      .btn-primary {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+      }
+      
+      .btn-primary:hover {
+        background: var(--primary-hover);
+      }
+      
+      /* Right Side Image */
+      .image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .image img {
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* 🔹 Fade-in Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      
+      .delay-1 { animation-delay: 0.3s; }
+      .delay-2 { animation-delay: 0.6s; }
+      .delay-3 { animation-delay: 0.9s; }
+      
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* 🔹 Responsive Adjustments */
+      @media (max-width: 992px) {
+        .container {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .content {
+          margin-bottom: 2rem;
+        }
+      
+        .trust-points {
+          display: inline-block;
+          text-align: left;
+        }
+      
+        .image {
+          justify-content: center;
+        }
+      }
+      
+}

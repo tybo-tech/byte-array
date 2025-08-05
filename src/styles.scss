@@ -1,0 +1,139 @@
+@forward "scroller";
+
+/* ==============================
+   Global Theme Variables
+   ============================== */
+:root {
+  /* Primary Colors */
+  --primary-color: #15443f;
+  --primary-hover: #0f2328;
+  --dark: #0f2328;
+  --dark2:#091e23;
+  --light: #f8f9fa;
+  --accent: #ffb400;
+  --secondary-color: #343a40;
+  --background-color: #f8f9fa;
+  --radial-gradient: radial-gradient(
+    36.2% 61.77% at 68.36% 48.75%,
+    #15443f 13.34%,
+    #0f2328 100%
+  );
+  --radial-gradient-45deg: radial-gradient(
+    36.2% 61.77% at 68.36% 48.75%,
+    #15443f 13.34%,
+    #0f2328 100%
+  );
+  --radial-gradient-90deg: radial-gradient(
+    36.2% 61.77% at 68.36% 48.75%,
+    #15443f 13.34%,
+    #0f2328 100%
+  );
+
+  /* Text Colors */
+  --text-color: #fcfcfc;
+  --text-light: #d6d6d6;
+
+  /* Spacing & Layout */
+  --container-padding: 2rem;
+  --border-radius: 5px;
+
+  /* Font */
+  --font-family: "Inter", sans-serif;
+
+  /* New Color Variables for Bubble Effects */
+  --bubble-primary: rgba(21, 68, 63, 0.5); /* Semi-transparent primary color */
+  --bubble-light: rgba(255, 255, 255, 0.3); /* Lighter bubble */
+  --bubble-accent: rgba(255, 180, 0, 0.6); /* Accent color with transparency */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--radial-gradient);
+  font-family: "Lato", "Arial" !important;
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 100px 10px;
+
+  @media (max-width: 768px) {
+    padding: 40px 10px;
+  }
+}
+
+.banner-section {
+  padding: 0 !important;
+}
+.ml-1 {
+  margin-left: 1rem;
+}
+.rotate-45 {
+  transform: rotate(317deg);
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Default state: hidden */
+[appScrollAnimate] {
+  opacity: 0 !important;
+  transform: translateY(50px) !important;
+  transition: all 0.8s ease-out 0.2s;
+}
+
+/* When in view: fade in & slide up */
+[appScrollAnimate].animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.sm-p-2 {
+  @media (max-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+label {
+  text-align: left;
+}
+
+
+/* Optional continuous rotation animation */
+@keyframes rotateGradient {
+  0% { background: var(--radial-gradient); }
+  33% { background: var(--radial-gradient-45deg); }
+  66% { background: var(--radial-gradient-90deg); }
+  100% { background: var(--radial-gradient); }
+}
+
+/* Apply the animation to the body or a specific element */
+.rotate-gradient {
+  background: var(--radial-gradient);
+  &:hover {
+    animation: rotateGradient 10s linear infinite;
+  }
+}

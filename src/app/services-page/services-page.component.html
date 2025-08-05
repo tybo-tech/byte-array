@@ -1,0 +1,38 @@
+<section class="services banner-section">
+  <app-banner
+    title="Our Services"
+    description="Explore our range of cutting-edge software solutions tailored for your business."
+  ></app-banner>
+
+  <div class="container">
+    <div class="services-list fade-in delay-2">
+      <div *ngFor="let service of services; let i = index" class="service-item">
+        <!-- Service Title & Short Description -->
+        <div class="service-header" (click)="toggleService(i)">
+          <div class="service-title">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.shortDescription }}</p>
+          </div>
+          <i
+            class="fas"
+            [ngClass]="service.expanded ? 'fa-minus-circle' : 'fa-plus-circle'"
+          ></i>
+        </div>
+
+        <!-- Expanded Content -->
+        <div class="service-details" *ngIf="service.expanded">
+          <img [src]="service.image" [alt]="service.title" />
+          <ul>
+            <li *ngFor="let detail of service.details">{{ detail }}</li>
+          </ul>
+          <a routerLink="/contact" class="btn-primary">
+            Contact Us
+            <i class="fas fa-arrow-right ml-1 rotate-45"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-why-choose />
+<app-final-cta />

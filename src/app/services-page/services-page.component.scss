@@ -1,0 +1,112 @@
+.services {
+    text-align: left;
+    background: var(--dark2);
+  color: var(--text-color);
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Headings */
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+  }
+  
+  /* Services List */
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Service Item */
+  .service-item {
+    padding: 1.5rem;
+    background: var(--radial-gradient);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(13, 69, 70);
+  }
+  
+  .service-item:hover {
+    background: rgba(0, 123, 255, 0.1);
+  }
+  
+  /* Service Header */
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .service-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .service-header i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Expanded Content */
+  .service-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+  }
+  
+  .service-details img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+  }
+  
+  .service-details ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-details li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* CTA Button */
+  .btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    display: inline-block;
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+  
+  /* 🔹 Responsive Adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+  }
+  

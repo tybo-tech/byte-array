@@ -1,0 +1,175 @@
+:host{
+    .final-cta {
+        text-align: left;
+        background: var(--dark2);
+        color: var(--text-color);
+      }
+      
+      /* Container */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      /* Left Side: CTA Text */
+      .cta-text {
+        flex: 1;
+        padding-right: 2rem;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+           
+        @media (max-width: 768px){
+          font-size: 1.6rem;
+        }
+      }
+      
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+      }
+      
+      /* Key Benefits */
+      .benefits {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+      }
+      
+      .benefits li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0.8rem;
+      }
+      
+      .benefits i {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+      }
+      
+      /* Contact Info */
+      .contact-info p {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Right Side: Contact Form */
+      .cta-form {
+        flex: 1;
+        background: #05111d;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+      }
+      
+      /* Form Styling */
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #414141;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        background: #10263b49;
+        color: #fff;
+      }
+      
+      textarea {
+        height: 120px;
+      }
+      
+      /* CTA Button */
+      .btn-primary {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        width: 100%;
+        border: none;
+        outline: none;
+        &:hover {
+          background: var(--primary-hover);
+        }
+        &:focus {
+          outline: 2px solid var(--primary-color);
+          box-shadow: 0 0 3px var(--primary-color);
+        }
+      }
+      
+      .btn-primary:hover {
+        background: var(--primary-hover);
+      }
+      
+      /* 🔹 Fade-in Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+      
+      .delay-1 { animation-delay: 0.3s; }
+      .delay-2 { animation-delay: 0.6s; }
+      .delay-3 { animation-delay: 0.9s; }
+      
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* 🔹 Responsive Adjustments */
+      @media (max-width: 992px) {
+        .container {
+          flex-direction: column;
+          text-align: center;
+        }
+      
+        .cta-text {
+          padding-right: 0;
+          margin-bottom: 2rem;
+        }
+      
+        .contact-info {
+          justify-content: center;
+        }
+      
+        .benefits {
+          display: inline-block;
+          text-align: left;
+          margin: 0 auto;
+        }
+      
+        .cta-form {
+          width: 100%;
+        }
+      }
+      
+}

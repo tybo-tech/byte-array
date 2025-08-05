@@ -1,0 +1,127 @@
+:host {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Hero Section */
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  /* Quote Form Section */
+  .quotes-form-section {
+    padding: 10px 2rem;
+    background: var(--radial-gradient);
+  }
+
+  .quotes-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background: #03143541;
+    color: #dedede;
+  }
+
+  textarea {
+    height: 120px;
+  }
+
+  /* CTA Button */
+  .btn-primary {
+    background: var(--accent);
+    color: #272727;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+
+  /* How It Works Section */
+  .quotes-how-it-works {
+    background: var(--dark);
+    padding: 10px 2rem;
+    text-align: center;
+  }
+
+  .steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .step {
+    flex: 1;
+    background: var(--radial-gradient);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgb(13, 69, 70);
+
+  }
+
+  .step i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step p {
+    font-size: 1.1rem;
+  }
+
+  /* FAQ & CTA */
+  .quotes-faq,
+  .quotes-cta {
+    padding: 100px 0;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .steps {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+}
+

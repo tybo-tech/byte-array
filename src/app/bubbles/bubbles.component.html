@@ -1,0 +1,7 @@
+<div class="bubbles">
+  <div
+    *ngFor="let item of bubbles; let i = index"
+    class="bubble"
+    [ngClass]="'bubble-' + (i + 1)"
+  ></div>
+</div>

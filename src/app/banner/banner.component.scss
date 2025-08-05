@@ -1,0 +1,118 @@
+:host {
+  display: block;
+
+  .banner {
+    min-height: 40vh;
+    background-color: #0b0b0b;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    // Skewed grid background layer
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.05) 0,
+          rgba(255, 255, 255, 0.05) 1px,
+          transparent 1px,
+          transparent 20px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.05) 0,
+          rgba(255, 255, 255, 0.05) 1px,
+          transparent 1px,
+          transparent 20px
+        );
+      background-size: 200% 200%;
+      background-position: 0 0;
+      transform: skewX(-20deg) skewY(-10deg);
+      animation: skewGridMove 40s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    // Optional subtle glow
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 255, 255, 0.08),
+        transparent 70%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    * {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+      padding: 3rem 0;
+
+      span {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 500;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease-out forwards 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+        width: 90%;
+
+        span {
+          font-size: 1.2rem;
+          padding-top: 0.5rem;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      min-height: 30vh;
+    }
+  }
+}
+
+/* 🔄 Skewed grid background movement */
+@keyframes skewGridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400px 400px;
+  }
+}
+
+/* 🔹 Fade-in and slide-up animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

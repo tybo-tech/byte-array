@@ -1,0 +1,83 @@
+.customers {
+  text-align: left;
+  background: var(--dark2);
+}
+
+/* Container */
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+/* Left Side: Text */
+.customers-text {
+  flex: 1;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+/* Right Side: Logos */
+.customers-logos {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+}
+
+.customers-logos img {
+  max-height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.customers-logos img:hover {
+  transform: scale(1.05), brightness(100%);
+}
+
+/* 🔹 Fade-in Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .customers-logos {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}

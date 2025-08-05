@@ -1,0 +1,26 @@
+<section class="faq">
+    <div class="container">
+      <!-- Heading -->
+      <h2 class="fade-in">Frequently Asked Questions</h2>
+      <p class="fade-in delay-1">
+        Have questions about our services? Find answers to the most common inquiries below.
+      </p>
+  
+      <!-- FAQ List -->
+      <div class="faq-list fade-in delay-2">
+        <div *ngFor="let faq of faqs; let i = index" class="faq-item" [class.open]="faq.open">
+          <!-- Question -->
+          <div class="faq-question" (click)="toggleFAQ(i)">
+            <i class="fas" [ngClass]="faq.open ? 'fa-minus-circle' : 'fa-plus-circle'"></i>
+            <span>{{ faq.question }}</span>
+          </div>
+  
+          <!-- Answer (Hidden by Default) -->
+          <div class="faq-answer" *ngIf="faq.open">
+            <p>{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

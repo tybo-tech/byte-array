@@ -1,0 +1,131 @@
+.about-hero {
+  text-align: center;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mission, Vision & Values */
+.about-mission {
+  background: var(--dark2);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.mission-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.mission-item {
+  flex: 1;
+  background: var(--radial-gradient);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(13, 69, 70);
+}
+
+.mission-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.mission-item h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.mission-item p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+/* The Byte Array Story */
+.about-story {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 0;
+}
+
+.story-content {
+  flex: 1;
+  max-width: 600px;
+  p {
+    font-size: 1rem;
+  }
+}
+
+.story-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.story-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* CTA Section */
+.about-cta {
+  background: #fff;
+  padding: 100px 0;
+}
+
+/* 🔹 Fade-in Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 992px) {
+  .about-story {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .story-content {
+    margin-bottom: 2rem;
+  }
+
+  .story-image {
+    justify-content: center;
+  }
+
+  .mission-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
