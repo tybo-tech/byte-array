@@ -21,14 +21,107 @@
       <i class="fas" [ngClass]="{ 'fa-bars': !menuOpen, 'fa-times': menuOpen }" aria-hidden="true"></i>
     </button>
 
-    <!-- Navigation Links -->
-    <ul class="nav-links" [ngClass]="{ 'active': menuOpen }" id="nav-menu" role="menubar">
-      <li role="none"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" role="menuitem">Home</a></li>
-      <li role="none"><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()" role="menuitem">About</a></li>
-      <li role="none"><a routerLink="/services" routerLinkActive="active" (click)="closeMenu()" role="menuitem">Services</a></li>
-      <li role="none"><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()" role="menuitem">Contact</a></li>
+    <!-- Desktop Navigation Links -->
+    <ul class="nav-links desktop-nav" id="nav-menu" role="menubar">
+      <li role="none"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" role="menuitem">Home</a></li>
+      <li role="none"><a routerLink="/about" routerLinkActive="active" role="menuitem">About</a></li>
+      <li role="none"><a routerLink="/services" routerLinkActive="active" role="menuitem">Services</a></li>
+      <li role="none"><a routerLink="/contact" routerLinkActive="active" role="menuitem">Contact</a></li>
       <!-- CTA Button -->
-      <li role="none"><a routerLink="/quote" class="cta" (click)="closeMenu()" role="menuitem" aria-label="Get a custom quote for your project">Get a Quote <i class="fas fa-arrow-right ml-1 rotate-45" aria-hidden="true"></i></a></li>
+      <li role="none"><a routerLink="/quotes" class="cta" role="menuitem" aria-label="Get a custom quote for your project">Get a Quote <i class="fas fa-arrow-right ml-1 rotate-45" aria-hidden="true"></i></a></li>
     </ul>
   </div>
+
+  <!-- Mobile Full-Screen Navigation -->
+  <div class="mobile-nav-fullscreen" [ngClass]="{ 'active': menuOpen }">
+    <div class="mobile-nav-content">
+      <!-- Header -->
+      <div class="mobile-nav-header">
+        <h2>Navigate</h2>
+        <p>Choose your destination</p>
+      </div>
+
+      <!-- Navigation Cards -->
+      <div class="nav-cards-grid">
+        <a routerLink="/" routerLinkActive="active-card" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="nav-card">
+          <div class="nav-card-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="nav-card-content">
+            <h3>Home</h3>
+            <p>Welcome page</p>
+          </div>
+        </a>
+
+        <a routerLink="/about" routerLinkActive="active-card" (click)="closeMenu()" class="nav-card">
+          <div class="nav-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="nav-card-content">
+            <h3>About</h3>
+            <p>Our story</p>
+          </div>
+        </a>
+
+        <a routerLink="/services" routerLinkActive="active-card" (click)="closeMenu()" class="nav-card">
+          <div class="nav-card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="nav-card-content">
+            <h3>Services</h3>
+            <p>What we do</p>
+          </div>
+        </a>
+
+        <a routerLink="/contact" routerLinkActive="active-card" (click)="closeMenu()" class="nav-card">
+          <div class="nav-card-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="nav-card-content">
+            <h3>Contact</h3>
+            <p>Get in touch</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Promotional Section -->
+      <div class="mobile-promo-section">
+        <h3>Featured Service</h3>
+        <div class="promo-card">
+          <div class="promo-image">
+            <img src="/images/ai-automation.jpg" alt="AI Automation Services" />
+          </div>
+          <div class="promo-content">
+            <h4>AI-Powered Solutions</h4>
+            <p>Transform your business with cutting-edge artificial intelligence and automation technologies.</p>
+            <div class="promo-features">
+              <span class="feature-tag">Machine Learning</span>
+              <span class="feature-tag">Process Automation</span>
+              <span class="feature-tag">Data Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enhanced CTA Section -->
+      <div class="mobile-cta-section">
+        <div class="cta-card">
+          <div class="cta-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="cta-content">
+            <h4>Ready to Start Your Project?</h4>
+            <p>Get a personalized quote tailored to your business needs</p>
+            <a routerLink="/quotes" (click)="closeMenu()" class="cta-button">
+              Get Free Quote
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-overlay" [ngClass]="{ 'active': menuOpen }" (click)="closeMenu()"></div>
 </nav>

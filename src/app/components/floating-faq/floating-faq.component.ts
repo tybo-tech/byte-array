@@ -32,16 +32,16 @@ import { CommonModule } from '@angular/common';
           <button
             class="tab-button"
             [class.active]="activeTab === 'faq'"
-            (click)="activeTab = 'faq'">
+            (click)="setActiveTab('faq')">
             <i class="fas fa-question-circle"></i>
-            FAQ
+            <span>Frequently Asked Questions</span>
           </button>
           <button
             class="tab-button"
             [class.active]="activeTab === 'process'"
-            (click)="activeTab = 'process'">
-            <i class="fas fa-clipboard-list"></i>
-            How it Works
+            (click)="setActiveTab('process')">
+            <i class="fas fa-route"></i>
+            <span>How Our Process Works</span>
           </button>
         </div>
 
@@ -87,58 +87,200 @@ import { CommonModule } from '@angular/common';
           <!-- How it Works Tab -->
           <div *ngIf="activeTab === 'process'">
             <p class="modal-description">
-              Our smart quote process is designed to understand your needs and provide accurate estimates.
+              Our comprehensive quote process ensures you receive accurate estimates and transparent pricing. Here's how we transform your vision into reality.
             </p>
+
+            <div class="process-overview">
+              <div class="overview-stats">
+                <div class="stat-item">
+                  <i class="fas fa-clock"></i>
+                  <span class="stat-number">24-48h</span>
+                  <span class="stat-label">Response Time</span>
+                </div>
+                <div class="stat-item">
+                  <i class="fas fa-handshake"></i>
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Transparent</span>
+                </div>
+                <div class="stat-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <span class="stat-number">Free</span>
+                  <span class="stat-label">Consultation</span>
+                </div>
+              </div>
+            </div>
 
             <div class="process-steps">
               <div class="process-step">
+                <div class="step-number">1</div>
                 <div class="step-icon">
                   <i class="fas fa-clipboard-list"></i>
                 </div>
                 <div class="step-content">
-                  <h3>Steps 1-2: Project Details</h3>
-                  <p>Tell us about your project type, required features, budget range, and timeline. All budget estimates are provided in South African Rands for transparent pricing.</p>
+                  <h3>Project Overview & Requirements</h3>
+                  <p>Tell us about your project type, required features, and desired timeline. We'll ask about your target audience, platform preferences, and specific functionality needs.</p>
+                  <div class="step-details">
+                    <div class="detail-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Project type selection (Web, Mobile, AI, etc.)</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Feature complexity assessment</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Technology stack recommendations</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="process-step">
+                <div class="step-number">2</div>
                 <div class="step-icon">
-                  <i class="fas fa-comment-dots"></i>
+                  <i class="fas fa-coins"></i>
                 </div>
                 <div class="step-content">
-                  <h3>Step 3: Requirements</h3>
-                  <p>Describe your project in detail - your goals, target users, key features, and technical requirements. The more information you provide, the more accurate our quote will be.</p>
+                  <h3>Budget & Timeline Planning</h3>
+                  <p>Specify your budget range and project timeline in South African Rands. This helps us tailor our approach and provide realistic estimates that fit your constraints.</p>
+                  <div class="step-details">
+                    <div class="detail-item">
+                      <i class="fas fa-chart-line"></i>
+                      <span>Budget optimization strategies</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-calendar-alt"></i>
+                      <span>Realistic timeline planning</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-balance-scale"></i>
+                      <span>Cost-benefit analysis</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="process-step">
+                <div class="step-number">3</div>
                 <div class="step-icon">
-                  <i class="fas fa-user-check"></i>
+                  <i class="fas fa-lightbulb"></i>
                 </div>
                 <div class="step-content">
-                  <h3>Step 4: Contact Information</h3>
-                  <p>Provide your contact details so our team can reach out to you with a detailed proposal and schedule a consultation to discuss your project.</p>
+                  <h3>Detailed Requirements Gathering</h3>
+                  <p>Describe your project vision, business goals, and technical requirements. Include information about integrations, scalability needs, and any specific challenges you're facing.</p>
+                  <div class="step-details">
+                    <div class="detail-item">
+                      <i class="fas fa-bullseye"></i>
+                      <span>Business objectives alignment</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-puzzle-piece"></i>
+                      <span>Third-party integration assessment</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-expand-arrows-alt"></i>
+                      <span>Scalability and growth planning</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div class="process-step">
+                <div class="step-number">4</div>
                 <div class="step-icon">
-                  <i class="fas fa-handshake"></i>
+                  <i class="fas fa-address-card"></i>
                 </div>
                 <div class="step-content">
-                  <h3>Response: Detailed Quote</h3>
-                  <p>Receive a comprehensive quote within 24-48 hours, including project timeline, team structure, technology recommendations, and transparent pricing.</p>
+                  <h3>Contact Information & Preferences</h3>
+                  <p>Provide your contact details and communication preferences. Let us know the best times to reach you and your preferred method of communication for project updates.</p>
+                  <div class="step-details">
+                    <div class="detail-item">
+                      <i class="fas fa-phone"></i>
+                      <span>Consultation scheduling</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-comments"></i>
+                      <span>Communication preference setup</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-globe"></i>
+                      <span>Timezone coordination</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="process-step final-step">
+                <div class="step-number">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="step-icon">
+                  <i class="fas fa-file-contract"></i>
+                </div>
+                <div class="step-content">
+                  <h3>Comprehensive Quote & Proposal</h3>
+                  <p>Receive a detailed proposal within 24-48 hours including project breakdown, timeline, team structure, technology recommendations, and transparent pricing in ZAR.</p>
+                  <div class="step-details">
+                    <div class="detail-item">
+                      <i class="fas fa-sitemap"></i>
+                      <span>Detailed project breakdown</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-users"></i>
+                      <span>Team composition and expertise</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-rocket"></i>
+                      <span>Implementation roadmap</span>
+                    </div>
+                    <div class="detail-item">
+                      <i class="fas fa-money-check-alt"></i>
+                      <span>Transparent pricing structure</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- What Happens Next Section -->
+            <div class="next-steps-section">
+              <h3>
+                <i class="fas fa-arrow-right"></i>
+                What Happens Next?
+              </h3>
+              <div class="next-steps-grid">
+                <div class="next-step">
+                  <i class="fas fa-video"></i>
+                  <h4>Free Consultation</h4>
+                  <p>We'll schedule a video call to discuss your project in detail and answer any questions.</p>
+                </div>
+                <div class="next-step">
+                  <i class="fas fa-drafting-compass"></i>
+                  <h4>Project Planning</h4>
+                  <p>Our team will create detailed wireframes and technical specifications for your approval.</p>
+                </div>
+                <div class="next-step">
+                  <i class="fas fa-code"></i>
+                  <h4>Development Kickoff</h4>
+                  <p>Once approved, we'll start development with regular updates and milestone demonstrations.</p>
                 </div>
               </div>
             </div>
 
             <!-- Process CTA -->
-            <div class="process-cta">
-              <p>Ready to get started?</p>
-              <button class="btn-primary" (click)="scrollToQuote()">
+            <div class="process-cta enhanced">
+              <div class="cta-icon-large">
                 <i class="fas fa-calculator"></i>
-                Start Quote Process
-              </button>
+              </div>
+              <div class="cta-content">
+                <h4>Ready to Transform Your Ideas into Reality?</h4>
+                <p>Get your personalized quote today and discover how we can bring your vision to life with cutting-edge technology and expert craftsmanship.</p>
+                <button class="btn-primary enhanced" (click)="scrollToQuote()">
+                  <i class="fas fa-paper-plane"></i>
+                  Start Your Quote Journey
+                </button>
+              </div>
             </div>
           </div>
 
@@ -250,8 +392,46 @@ import { CommonModule } from '@angular/common';
       justify-content: center;
     }
 
-    .close-button:hover {
-      background: rgba(255, 255, 255, 0.2);
+    /* Tab Navigation */
+    .tab-navigation {
+      display: flex;
+      border-bottom: 2px solid #e9ecef;
+      margin-bottom: 2rem;
+    }
+
+    .tab-button {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #666;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab-button:hover {
+      background: #f8f9fa;
+      color: var(--primary-color);
+    }
+
+    .tab-button.active {
+      color: var(--primary-color);
+      border-bottom-color: var(--primary-color);
+      background: #f8f9fa;
+    }
+
+    .tab-button span {
+      font-size: 0.95rem;
+    }
+
+    .tab-button i {
+      font-size: 1.1rem;
     }
 
     /* Modal Body */
@@ -367,6 +547,277 @@ import { CommonModule } from '@angular/common';
       box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
 
+    /* Process Overview Stats */
+    .process-overview {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      color: white;
+    }
+
+    .overview-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stat-item i {
+      font-size: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Enhanced Process Steps */
+    .process-steps {
+      margin-bottom: 2rem;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .process-step:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .process-step.final-step {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border-left-color: #667eea;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    .final-step .step-number {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .step-icon {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: 3px solid var(--primary-color);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    }
+
+    .step-icon i {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+
+    .final-step .step-icon {
+      border-color: #667eea;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    }
+
+    .final-step .step-icon i {
+      color: #667eea;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h3 {
+      margin: 0 0 0.8rem 0;
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .step-content p {
+      margin: 0 0 1rem 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .step-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .detail-item i {
+      color: var(--primary-color);
+      font-size: 0.8rem;
+    }
+
+    /* Next Steps Section */
+    .next-steps-section {
+      background: white;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .next-steps-section h3 {
+      margin: 0 0 1.5rem 0;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    .next-steps-section h3 i {
+      color: var(--primary-color);
+    }
+
+    .next-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .next-step {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: #f8f9fa;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .next-step:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .next-step i {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .next-step h4 {
+      margin: 0 0 0.75rem 0;
+      color: #333;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .next-step p {
+      margin: 0;
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Enhanced Process CTA */
+    .process-cta.enhanced {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      border: none;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .cta-icon-large {
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .cta-icon-large i {
+      font-size: 2.5rem;
+      color: white;
+    }
+
+    .process-cta.enhanced .cta-content h4 {
+      margin: 0 0 1rem 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .process-cta.enhanced .cta-content p {
+      margin: 0 0 2rem 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      opacity: 0.95;
+      color: white;
+    }
+
+    .btn-primary.enhanced {
+      background: white;
+      color: var(--primary-color);
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+    }
+
+    .btn-primary.enhanced:hover {
+      background: #f8f9fa;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -417,6 +868,69 @@ import { CommonModule } from '@angular/common';
       .answer-content {
         padding: 1rem;
       }
+
+      .tab-button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .tab-button span {
+        display: none;
+      }
+
+      .overview-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+      }
+
+      .stat-number {
+        font-size: 1.4rem;
+      }
+
+      .stat-label {
+        font-size: 0.75rem;
+      }
+
+      .process-step {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+      }
+
+      .step-number, .step-icon {
+        align-self: flex-start;
+      }
+
+      .next-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .next-step {
+        padding: 1.2rem 1rem;
+      }
+
+      .cta-icon-large {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+
+      .cta-icon-large i {
+        font-size: 2rem;
+      }
+
+      .process-cta.enhanced {
+        padding: 2rem 1.5rem;
+      }
+
+      .process-cta.enhanced .cta-content h4 {
+        font-size: 1.2rem;
+      }
+
+      .process-cta.enhanced .cta-content p {
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -430,6 +944,33 @@ import { CommonModule } from '@angular/common';
 
       .modal-header h2 {
         font-size: 1.1rem;
+      }
+
+      .process-overview {
+        padding: 1rem;
+      }
+
+      .overview-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .stat-item {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      .detail-item {
+        font-size: 0.85rem;
+      }
+
+      .next-steps-section {
+        padding: 1.5rem;
+      }
+
+      .next-step i {
+        font-size: 1.5rem;
       }
     }
   `]
