@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <!-- Floating FAQ Button -->
-    <div class="floating-faq-button" 
-         (click)="toggleModal()" 
+    <div class="floating-faq-button"
+         (click)="toggleModal()"
          [class.pulse]="!hasBeenOpened"
          title="Help & Information">
       <i class="fas fa-question"></i>
@@ -29,15 +29,15 @@ import { CommonModule } from '@angular/common';
 
         <!-- Tab Navigation -->
         <div class="tab-navigation">
-          <button 
-            class="tab-button" 
+          <button
+            class="tab-button"
             [class.active]="activeTab === 'faq'"
             (click)="activeTab = 'faq'">
             <i class="fas fa-question-circle"></i>
             FAQ
           </button>
-          <button 
-            class="tab-button" 
+          <button
+            class="tab-button"
             [class.active]="activeTab === 'process'"
             (click)="activeTab = 'process'">
             <i class="fas fa-clipboard-list"></i>
@@ -47,7 +47,7 @@ import { CommonModule } from '@angular/common';
 
         <!-- Modal Body -->
         <div class="modal-body">
-          
+
           <!-- FAQ Tab -->
           <div *ngIf="activeTab === 'faq'">
             <p class="modal-description">
@@ -56,8 +56,8 @@ import { CommonModule } from '@angular/common';
 
             <!-- FAQ List -->
             <div class="faq-list">
-              <div *ngFor="let faq of faqs; let i = index" 
-                   class="faq-item" 
+              <div *ngFor="let faq of faqs; let i = index"
+                   class="faq-item"
                    [class.open]="faq.open">
                 <!-- Question -->
                 <div class="faq-question" (click)="toggleFAQ(i)">
@@ -508,7 +508,7 @@ export class FloatingFaqComponent {
     setTimeout(() => {
       const element = document.getElementById('quote-section') || document.querySelector('.quote-container');
       if (element) {
-        element.scrollIntoView({ 
+        element.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
